@@ -1,9 +1,14 @@
 #!/usr/bin/python
 
 import argparse
-
+from cmath import inf
 def find_max_profit(prices):
-  pass
+    global_min = -inf
+    for i in range(len(prices)-1):
+       mn = max(prices[i+1:])
+       if  mn-prices[i] >global_min:
+           global_min = mn-prices[i]
+    return global_min
 
 
 if __name__ == '__main__':
